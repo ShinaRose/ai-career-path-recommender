@@ -6,7 +6,10 @@ st.set_page_config(page_title="AI Career Path Recommender", layout="wide")
 st.title("AI Career Path Recommender")
 st.write("A positive-impact app that helps students discover suitable IT and data careers.")
 
-careers = pd.read_csv("data/career_profiles.csv")
+from pathlib import Path
+
+BASE_DIR = Path(__file__).parent
+careers = pd.read_csv(BASE_DIR / "data" / "career_profiles.csv")
 
 st.sidebar.header("Rate your skills")
 python = st.sidebar.slider("Python", 0, 5, 3)
